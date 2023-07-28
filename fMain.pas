@@ -17,6 +17,9 @@ type
     NowButton: TscButton;
     scGPMonthCalendar1: TscGPMonthCalendar;
     scGPTimeEdit1: TscGPTimeEdit;
+    JulianEdit: TscEdit;
+    scLabel1: TscLabel;
+    scLabel2: TscLabel;
     procedure FloatEditChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure UnixEditChange(Sender: TObject);
@@ -121,6 +124,8 @@ begin
   FloatEdit.OnChange := FloatEditChange;
 
   DateTimeEdit.Text := FormatDateTime(fmt, CurDate);
+
+  JulianEdit.Text := System.DateUtils.DateTimeToJulianDate(CurDate).ToString;
 end;
 
 procedure TMainForm.FloatEditChange(Sender: TObject);
